@@ -4,12 +4,16 @@ import lombok.*;
 
 import java.util.Date;
 
+
+// Account shc test
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Getter
 @Builder
 @ToString(exclude = "id")
 public class Account {
+
     private Long id;
     private String accountNumber;
     private String accountHolder;

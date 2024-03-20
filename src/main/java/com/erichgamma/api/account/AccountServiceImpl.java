@@ -3,6 +3,7 @@ package com.erichgamma.api.account;
 import com.erichgamma.api.common.AbstractService;
 import com.erichgamma.api.enums.Messenger;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;

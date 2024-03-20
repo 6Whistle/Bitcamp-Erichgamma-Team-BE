@@ -13,7 +13,6 @@ public class Board {
     @Id
     @Column(name = "id",nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
     private String boardName;
     private String boardType;

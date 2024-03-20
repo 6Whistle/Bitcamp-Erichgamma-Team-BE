@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Getter
+@Entity(name = "users")
 @ToString(exclude = "id")
 public class User {
     @Id

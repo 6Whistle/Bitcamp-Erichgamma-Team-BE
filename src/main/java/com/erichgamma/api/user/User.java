@@ -3,7 +3,6 @@ package com.erichgamma.api.user;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

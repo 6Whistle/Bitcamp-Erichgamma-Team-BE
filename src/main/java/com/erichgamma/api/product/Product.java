@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Getter
-@Entity(name = "produsts")
+@Entity(name = "products")
 @ToString(exclude = "id")
 public class Product {
     @Id

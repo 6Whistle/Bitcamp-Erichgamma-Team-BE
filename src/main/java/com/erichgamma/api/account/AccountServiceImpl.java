@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 >>>>>>> dev-shc
 @Service
 @RequiredArgsConstructor
+@Service
 public class AccountServiceImpl extends AbstractService<Account> implements AccountService {
 
     private final List<Account> accountDTOList;

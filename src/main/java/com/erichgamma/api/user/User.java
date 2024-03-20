@@ -1,6 +1,7 @@
 package com.erichgamma.api.user;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,10 +16,16 @@ import lombok.*;
 
 @Entity(name="users")
 >>>>>>> dev-shc
+=======
+import jakarta.persistence.*;
+import lombok.*;
+
+>>>>>>> 44ec7153c547d235fc02aaf309c092e530ac8b0c
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Getter
+@Entity(name = "users")
 @ToString(exclude = "id")
 public class User {
     @Id

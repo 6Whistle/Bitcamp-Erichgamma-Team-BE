@@ -1,5 +1,6 @@
 package com.erichgamma.api.user;
 
+<<<<<<< HEAD
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +9,12 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 @Entity(name = "users")
+=======
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity(name="users")
+>>>>>>> dev-shc
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -17,6 +24,10 @@ public class User {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev-shc
     private Long id;
     private Long addressId;
     private String username;

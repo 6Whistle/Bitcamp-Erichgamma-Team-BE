@@ -1,5 +1,8 @@
 package com.erichgamma.api.common;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class UtilServiceImpl implements UtilService {
 
     private static UtilService instance = new UtilServiceImpl();

@@ -2,7 +2,6 @@ package com.erichgamma.api.account;
 
 import com.erichgamma.api.common.AbstractService;
 import com.erichgamma.api.enums.Messenger;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +9,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
 @Service
 @RequiredArgsConstructor
+@Service
 public class AccountServiceImpl extends AbstractService<Account> implements AccountService {
 
     private final List<Account> accountDTOList;

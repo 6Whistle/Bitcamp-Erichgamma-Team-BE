@@ -10,6 +10,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
+@Service
 @RequiredArgsConstructor
 public class AccountServiceImpl extends AbstractService<Account> implements AccountService {
 

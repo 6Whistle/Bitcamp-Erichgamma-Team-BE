@@ -7,6 +7,8 @@ import com.erichgamma.api.order.Order;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -16,8 +18,13 @@ import lombok.*;
 public class Product {
     @Id
     @Column(name = "id",nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
+    @OneToMany(mappedBy = "product")
+    @JoinColumn(name = "orders_id",referencedColumnName = "id")
+    private List<Order>orders;
     private String name;
     private String company;
     private Integer price;

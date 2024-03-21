@@ -1,5 +1,6 @@
 package com.erichgamma.api.article;
 
+import com.erichgamma.api.board.Board;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,4 +20,9 @@ public class Article {
     private String content;
     private String writer;
     private String registerDate;
+
+
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "board_id", nullable = true)
+    private Board board;
 }

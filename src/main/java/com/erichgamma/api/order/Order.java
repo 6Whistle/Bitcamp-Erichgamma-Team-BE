@@ -21,10 +21,10 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User userId;
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @OneToMany(mappedBy = "products")
-    @JoinColumn(name = "products_id", referencedColumnName = "id", nullable = true)
-    private List<Product> products_id;
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = true)
+    private Product product;
 }

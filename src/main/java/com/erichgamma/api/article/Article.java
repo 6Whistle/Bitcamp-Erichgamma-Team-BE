@@ -14,7 +14,6 @@ public class Article {
     @Id
     @Column(name ="id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
     private String title;
     private String content;
@@ -22,7 +21,7 @@ public class Article {
     private String registerDate;
 
 
-    @ManyToOne(optional = true)
+    @ManyToOne
     @JoinColumn(name = "board_id", nullable = true)
     private Board board;
 }

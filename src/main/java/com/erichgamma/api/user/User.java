@@ -19,8 +19,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "orders")
-    @JoinColumn(name = "orders_id", referencedColumnName = "id", nullable = true)
+    @OneToMany(mappedBy = "user")
     private List<Order> ordersId;
 
     private Long addressId;

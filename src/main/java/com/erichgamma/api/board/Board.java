@@ -11,20 +11,17 @@ import java.util.List;
 @Builder
 @Getter
 @ToString(exclude = "id")
-@Entity(name = "Boards")
+@Entity(name = "boards")
 public class Board {
 
     @Id
     @Column(name = "id",nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
+
     private String boardName;
     private String boardType;
 
-
-
-    @OneToMany (mappedBy = "board")
-    @JoinColumn(name="id",referencedColumnName = "id")
-    private List<Article> articles;    
+    @OneToMany(mappedBy = "board")
+    private List<Article> articlesId;    
 }

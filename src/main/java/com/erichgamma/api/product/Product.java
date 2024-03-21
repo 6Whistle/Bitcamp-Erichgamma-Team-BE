@@ -1,5 +1,9 @@
 package com.erichgamma.api.product;
 
+import java.util.List;
+
+import com.erichgamma.api.order.Order;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,4 +21,7 @@ public class Product {
     private String name;
     private String company;
     private Integer price;
+
+    @OneToMany(mappedBy = "product")
+    private List<Order> ordersId;
 }

@@ -16,7 +16,7 @@ import lombok.*;
 public class User {
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToMany(mappedBy = "orders")
@@ -31,5 +31,6 @@ public class User {
     private String job;
     private Double height;
     private Double weight;
+
 }
 

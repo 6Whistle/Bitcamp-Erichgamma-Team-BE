@@ -12,7 +12,7 @@ import lombok.*;
 public class User {
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long addressId;
     private String username;
@@ -22,5 +22,6 @@ public class User {
     private String job;
     private Double height;
     private Double weight;
+
 }
 

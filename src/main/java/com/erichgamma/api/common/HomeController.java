@@ -29,15 +29,4 @@ public class HomeController {
         System.out.println("리퀘스트가 가져온 이름 : " + name);
         return respMap;
     }   
-
-    @RequestMapping("/login")
-    public Map<String, ?> login(@RequestBody Map<String, ?> reqMap){
-        Map<String, String> resMap = new HashMap<>();
-        String username = (String)reqMap.get("username"), pw = (String)reqMap.get("pw");
-        System.out.println("Request : " + username + ", " + pw);
-        resMap.put("username", username);
-        resMap.put("pw", pw);
-        resMap.put("login", "success");
-        return resMap;
-    }
 }

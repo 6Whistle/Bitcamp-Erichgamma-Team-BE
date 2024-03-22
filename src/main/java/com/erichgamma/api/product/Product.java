@@ -22,9 +22,6 @@ public class Product {
     private Long id;
 
 
-    @OneToMany(mappedBy = "product")
-    @JoinColumn(name = "orders_id",referencedColumnName = "id")
-    private List<Order>orders;
     private String name;
     private String company;
     private Integer price;

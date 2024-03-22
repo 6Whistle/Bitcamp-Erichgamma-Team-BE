@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.erichgamma.api.enums.Messenger;
 
+import io.micrometer.common.lang.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 public class UserController {
-    private final UserService userservice;
+    private final UserRepository userRepository;
     
-    @RequestMapping("/login")
+    @RequestMapping(path = "/api/users/login")
     public Map<String, ?> login(@RequestBody Map<String, ?> reqMap){
         Map<String, String> resMap = new HashMap<>();
         String username = (String)reqMap.get("username"), pw = (String)reqMap.get("pw");
@@ -29,20 +30,23 @@ public class UserController {
         return resMap;
     }
 
-    @RequestMapping("/join")
+    @RequestMapping(path = "/api/users/join")
     public Map<String, ?> join(@RequestBody Map<String, ?> reqMap){
         Map<String, Messenger> resMap = new HashMap<>();
-        User user = User.builder()
-        .username((String)reqMap.get("username"))
-        .password((String)reqMap.get("password"))
-        .name((String)reqMap.get("name"))
-        .phone((String)reqMap.get("phone"))
-        .job((String)reqMap.get("job"))
-        .height(Double.parseDouble((String)reqMap.get("height")))
-        .weight(Double.parseDouble((String)reqMap.get("weight")))
-        .build();
-        
-        resMap.put("message", Messenger.SUCCESS);
+        resMap.put("message", 
+        userRepository.findById(
+            userRepository.save(User.builder()
+            .username((String)reqMap.get("username"))
+            .password((String)reqMap.get("password"))
+            .name((String)reqMap.get("name"))
+            .phone((String)reqMap.get("phone"))
+            .job((String)reqMap.get("job"))
+            .height(Double.parseDouble((String)reqMap.get("height")))
+            .weight(Double.parseDouble((String)reqMap.get("weight"))).build())
+        .getId())
+        .isPresent()
+        ? Messenger.SUCCESS 
+        : Messenger.FAIL);
         return resMap;
     }
 }

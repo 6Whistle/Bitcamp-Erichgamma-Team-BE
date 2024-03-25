@@ -1,7 +1,9 @@
 package com.erichgamma.api.user;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,12 +23,18 @@ public class UserController {
     
     @RequestMapping(path = "/api/users/login")
     public Map<String, ?> login(@RequestBody Map<String, ?> reqMap){
-        Map<String, String> resMap = new HashMap<>();
-        String username = (String)reqMap.get("username"), pw = (String)reqMap.get("pw");
-        System.out.println("Request : " + username + ", " + pw);
-        resMap.put("username", username);
-        resMap.put("pw", pw);
-        resMap.put("login", "success");
+        Map<String, Messenger> resMap = new HashMap<>();
+        resMap.put(
+            "message", 
+            !((String)reqMap.get("password")).equals("")
+            && userRepository
+            .findByUsername((String)reqMap.get("username"))
+            .orElseGet(() -> User.builder().password("").build())
+            .getPassword()
+            .equals((String)reqMap.get("password")) 
+            ? Messenger.SUCCESS
+            : Messenger.FAIL
+        );
         return resMap;
     }
 

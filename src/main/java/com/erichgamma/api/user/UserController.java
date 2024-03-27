@@ -1,9 +1,7 @@
 package com.erichgamma.api.user;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.erichgamma.api.enums.Messenger;
 
-import io.micrometer.common.lang.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RestController

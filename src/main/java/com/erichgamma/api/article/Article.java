@@ -22,8 +22,8 @@ public class Article {
     private String registerDate;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = true)
-    private User user;
+    @JoinColumn(name = "writer_id", nullable = true)
+    private User writer;
 
     @ManyToOne
     @JoinColumn(name = "board_id", nullable = true)

@@ -2,6 +2,7 @@ package com.erichgamma.api.user;
 
 import java.util.List;
 
+import com.erichgamma.api.article.Article;
 import com.erichgamma.api.order.Order;
 
 import jakarta.persistence.*;
@@ -18,6 +19,9 @@ public class User {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(mappedBy = "user")
+    private List<Article> articlesId;
 
     @OneToMany(mappedBy = "user")
     private List<Order> ordersId;

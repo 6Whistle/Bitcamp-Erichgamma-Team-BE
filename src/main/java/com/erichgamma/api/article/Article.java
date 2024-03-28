@@ -1,6 +1,8 @@
 package com.erichgamma.api.article;
 
 import com.erichgamma.api.board.Board;
+import com.erichgamma.api.user.User;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,9 +19,11 @@ public class Article {
     private Long id;
     private String title;
     private String content;
-    private String writer;
     private String registerDate;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "board_id", nullable = true)

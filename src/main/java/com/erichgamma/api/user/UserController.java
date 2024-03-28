@@ -18,6 +18,11 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
     private final UserRepository userRepository;
     
+    @RequestMapping(path = "/api/users/name")
+    public Map<String, ?> hello(@RequestBody Map<String, ?> reqMap){
+        return Map.of("name", reqMap.get("name"));
+    }
+
     @RequestMapping(path = "/api/users/login")
     public Map<String, ?> login(@RequestBody Map<String, ?> reqMap){
         Map<String, Messenger> resMap = new HashMap<>();

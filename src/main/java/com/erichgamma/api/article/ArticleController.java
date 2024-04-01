@@ -1,5 +1,6 @@
 package com.erichgamma.api.article;
 
+import java.util.List;
 import java.util.Map;
 import java.util.stream.LongStream;
 
@@ -31,12 +32,12 @@ public class ArticleController {
             // .build()).toList());
         return Map.of(
             "message", Messenger.SUCCESS,
-            "articles", Article.builder()
+            "articles", List.of(Article.builder()
             .id((long)0)
             .title("test title")
             .content("test content")
             .registerDate("test registerDate")
-            .build()
+            .build())
         );
     }
 }

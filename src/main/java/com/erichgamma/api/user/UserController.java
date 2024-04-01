@@ -2,8 +2,12 @@ package com.erichgamma.api.user;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
+import org.hibernate.mapping.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -58,5 +62,19 @@ public class UserController {
         ? Messenger.SUCCESS 
         : Messenger.FAIL);
         return resMap;
+    }
+
+    @GetMapping(path = "/api/users/all-users")
+    public Map<?, ?> findAll(){
+        return Map.of("users", LongStream.range(0, 5)
+        .mapToObj(i -> User.builder()
+        .id(i)
+        .username("username" + i)
+        .password("password" + i)
+        .name("name" + i)
+        .phone("phone" + i)
+        .job("job" + i)
+        .build())
+        .toList());
     }
 }

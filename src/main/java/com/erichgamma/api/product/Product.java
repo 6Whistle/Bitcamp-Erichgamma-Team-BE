@@ -21,11 +21,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(mappedBy = "product")
+    private List<Order> ordersId;
 
     private String name;
     private String company;
     private Integer price;
-
-    @OneToMany(mappedBy = "product")
-    private List<Order> ordersId;
 }

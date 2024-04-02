@@ -34,6 +34,5 @@ public class User {
     private String job;
     private Double height;
     private Double weight;
-
 }
 
